@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html>
+<title>广传慧生活</title>
+<head>
+<style type="text/css">
+*{ text-decoration: none; margin: 0; padding: 0;}
+#header{ height: 30px; background-color: gray; max-width: 1920px; min-width: 1120px;}
+#header li{ margin-left: 5px; margin-right: 5px; font-size: 8px; float: left; list-style: none; line-height: 30px;}
+#header a{ color: white;}
+#header a:hover{ color: black;}
+.leftlink{ margin-left: 8%; min-width: 350px; background-color: red; float: left;}
+.log{ margin-right: 8%; width: 160px; background-color: #66ccff; float: right;}
+
+#box{width: 1120px; position: absolute; left: 0px; right: 0px; margin-left: auto; margin-right: auto; padding-bottom: 30px;}
+
+#logo{ margin: 20px 20px -4px 50px; float: left;}
+
+#topmenu{ position: absolute; left: 300px; top: -24px; width: 530px; height: 90px; margin-top: 54px;}
+#topmenu li{ font-size: 18px; float: left; list-style: none; padding: 20px 20px 54px 20px;}
+#topmenu a{ color: black;}
+#topmenu a:hover{ color:red;}
+
+#search { position: absolute; font-size:10px; left: 843px; top: 52px; width: 260px;}
+
+.slidemenu{ width: 1020px; height: 200px; position: absolute; top: 90px; left: -250px; z-index: 4; border: 0; text-align: center; display: none; background-color: white;}
+.slidemenu img{ width: 200px; height: 150px;}
+.slidemenu dt{ float: left; padding-left: 100px; font-family: Microsoft YaHei; font-size: 16px;}
+
+#leftmenu{ line-height: 30px; background-color: rgb(99,92,82); height: 300px ;width: 200px; clear: both; margin-left: 50px; padding-top: 20px; text-align: center;}
+#leftmenu a{ color: white;}
+#leftmenu td:hover { background-color :rgb(255,103,0); cursor: pointer;}
+
+.suspension{ display: none; width: 500px; height: 300px; position: absolute; left: 250px; top: 120px; z-index: 3; background-color: white; cursor: default; overflow: hidden;}
+.suspension ul{ width: 300px; height: 500px; margin-bottom: -200px; 
+-webkit-transform-origin:0px 0px; transform-origin: 0px 0px; -webkit-transform: rotate(-90deg) translate(-300px); transform: rotate(-90deg) translate(-300px);}
+.suspension li{ list-style: none; width: 150px; height: 166px; line-height: 50px; margin-right: -100px; float: right; 
+-webkit-transform-origin: 0px 0px; transform-origin: 0px 0px; -webkit-transform:rotate(90deg) translateY(-50px); transform:rotate(90deg) translateY(-50px);}
+#leftmenu .suspension a{color: black;}
+#leftmenu .suspension a:hover{ color: red;}
+
+#container{ width: 600px; height: 300px; position: absolute; left: 250px; top: 120px; overflow: hidden;}
+#list{ width: 4200px; height: 300px; z-index: 1; position: absolute;}
+#list img{ width: 600px; height: 300px; float: left;}
+#buttons{ height: 10px; width: 100px; z-index: 2; position: absolute; bottom: 20px; left: 250px;}
+#buttons span{ cursor: pointer; float: left; border: 1px solid #fff; width: 10px; height: 10px; border-radius: 50%; background:#333; margin-right: 5px;}
+#buttons .on{ background-color: orange;}
+.arrow{ position: absolute; top: 120px; text-align: center; display: none; font-size: 36px; width: 35px; height: 40px; line-height: 36px; background-color: RGBA(0,0,0,.3); color: #fff; z-index: 2;}
+.arrow:hover{ background-color: RGBA(0,0,0,.7);}
+#container:hover .arrow{ display: block;}
+#prev{ left: 20px;}
+#next{ right: 20px;}
+
+#shadowpic1 img{ width: 185px; height: 120px; position: absolute; left: 885px; top: 120px;}
+#shadowpic2 img{ width: 185px; height: 120px; position: absolute; left: 885px; top: 300px;}
+.shadow3d{-webkit-box-shadow: 0 15px 30px rgba(0,0,0,0.3); box-shadow: 0 15px 30px rgba(0,0,0,0.3); -webkit-transform: translate3d(0, -2px, 0); transform: translate3d(0, -2px, 0);}
+
+
+#represent { margin-left: 50px; margin-top: 50px;}
+.arrowProduct{ position :absolute; text-align: center; font-size: 20px; width: 25px; height: 25px; line-height: 23px; rgba(0,0,0,.7); color: orange;}
+#represent .cannot { color: grey; cursor: default;}
+#prevProduct{ left: 1020px;}
+#nextProduct{ right: 50px;}
+
+#containerProduct{ width: 1020px; height: 210px; margin-top: 15px; overflow: hidden; position: relative;}
+#listProduct{ width: 2040px; height: 210px; position: absolute;}
+#listProduct img{ width: 340px; height: 180px; float: left;}
+#description td{ width: 340px; text-align: center; height: 30px;}
+
+#series1 { margin-left: 50px; margin-top: 50px;}
+#series1-tit{ width: 250px; position: absolute; left: 820px; top: 776px;}
+#series1 li{ float: left; list-style: none; padding-left: 20px; font-size: 16px;}
+#series1 a{ color: black;}
+#series1-tit a:hover{ color: orange; border-bottom: 2px solid #66CCFF; padding-bottom: 5px;}
+#series1 .mod{ width: 1020px; height: 270px;}
+
+.mod img{ width: 320px; height: 180px;}
+.mod td{ text-align: center; width: 320px; height: 35px;}
+.mod .product1{ position: absolute; left: 50px; top: 815px; width: 320px;}
+.mod .product2{ position: absolute; left: 400px; top: 815px; width: 320px;}
+.mod .product3{ position: absolute; left: 750px; top: 815px; width: 320px;}
+.mod .comment1,.comment2,.comment3{ background-color: orange; position: absolute; bottom: 0px; z-index: 2; height: 40px; width: 320px; display: none; text-align: center;}
+
+#moreInformation { margin-top: 50px;}
+#moreInformation td{ width: 180px; text-align: center;}
+#moreInformation a{ color: grey;}
+#moreInformation a:hover{ color: orange;}
+th{ font-size: 15px; font-weight: normal;}
+
+#footer{ height: 30px; background-color: grey; max-width: 1920px; min-width: 1120px; color: white; text-align: center; margin-top: 1215px;}
+</style>
+<script src="jquery.1.10.2.js"></script>
+<script type="text/javascript">
+window.onload = function(){
+var container = document.getElementById("container");
+var list = document.getElementById("list");
+var buttons = document.getElementById("buttons").getElementsByTagName("span");
+var prev = document.getElementById("prev");
+var next = document.getElementById("next");
+var index = 1;
+var animated = false;
+var timer;
+
+//按钮显示
+function showButton(){
+	for ( var i = 0; i < buttons.length; i++){
+		if( buttons[i].className == "on"){
+			buttons[i].className = "";
+			break;
+		}
+	}
+	buttons[index - 1].className = "on";
+}
+
+//切换动画
+function animate(offset){
+	var newLeft = parseInt(list.style.left) + offset;
+	var time = 300;
+	var interval = 10;
+	var speed = offset/(time/interval);
+	
+	function go(){
+		animated = true;
+		if (( speed < 0 && parseInt(list.style.left) > newLeft )||( speed > 0 && parseInt(list.style.left)< newLeft )){
+			list.style.left = parseInt(list.style.left) + speed + "px";
+			setTimeout(go,interval);
+		}else{
+			animated = false;
+			if ( newLeft > -600){
+				newLeft = -3000;
+				}
+			if ( newLeft < -3000){
+				newLeft = -600;
+				}
+			list.style.left = newLeft + "px";
+			}
+	}
+	go();
+}	
+
+//右箭头
+next.onclick = function(){
+	if ( animated ){
+		return;
+	}
+	if ( index == 5){
+		index = 1;
+	}else{
+		index += 1;
+	}
+	showButton();
+	animate(-600);
+}
+
+//左箭头
+prev.onclick = function(){
+	if( animated ){
+		return;
+	}
+	if ( index == 1){
+		index = 5;
+	}else{
+		index -= 1;
+	}
+	showButton();
+	animate(600);
+}
+
+//按钮点击切换
+for ( var i = 0 ; i < buttons.length ; i++){
+	buttons[i].onclick = function(){
+		if ( animated ){
+			return;
+		}
+		var myIndex = parseInt(this.getAttribute("index"));
+		var offset = -600 * ( myIndex - index );
+		animate(offset);		
+		index = myIndex;
+		showButton();
+	}
+}
+
+//自动轮播
+function play(){
+	timer = setInterval(function(){
+		next.click();
+	},3000)
+}
+function stop(){
+	clearInterval(timer);
+}
+container.onmouseover = stop;
+container.onmouseout = play;
+play();
+
+
+
+//代表产品按钮和轮播
+var containerProduct = document.getElementById("containerProduct");
+var listProduct = document.getElementById("listProduct");
+var prevProduct = document.getElementById("prevProduct");
+var nextProduct = document.getElementById("nextProduct");
+var animatedProduct = false;
+
+function animateProduct(offsetProduct){
+	var time = 300;
+	var interval = 10;
+	var speed = offsetProduct/(time/interval);
+	
+	function goProduct(){
+		animatedProduct = true;
+		if(( parseInt(listProduct.style.left) > -1020 && speed < 0 )||( parseInt(listProduct.style.left) < 0 && speed > 0)){
+			listProduct.style.left = parseInt(listProduct.style.left)+ speed +"px";
+			setTimeout(goProduct,interval);
+		}else{
+			animatedProduct = false;
+		}
+	}
+	goProduct();
+}
+nextProduct.onclick = function(){
+	if(animatedProduct){
+		return;
+	}
+	animateProduct(-1020);
+	prevProduct.className = "arrowProduct";
+	nextProduct.className = "arrowProduct cannot";
+}
+
+prevProduct.onclick = function(){
+	if(animatedProduct){
+		return;
+	}
+	animateProduct(1020);
+	nextProduct.className = "arrowProduct";
+	prevProduct.className = "arrowProduct cannot";
+}
+
+setInterval(function(){
+	nextProduct.click();
+},4000)
+setTimeout(function(){
+	setInterval(function(){
+		prevProduct.click();
+	},4000)
+},4000)
+
+
+
+//系列1选项卡
+var titles = document.getElementById("series1-tit").getElementsByTagName("li");
+var contents = document.getElementById("series1-con").getElementsByClassName("mod");
+
+if ( titles.length != contents.length ){
+	return;
+}
+
+for ( var i = 0; i < titles.length; i++){
+	titles[i].index = i;
+	titles[i].onmouseover = function(){
+		for ( var j = 0; j < titles.length; j++){
+			titles[j].className = "";
+			contents[j].style.display = "none";
+		}
+		contents[this.index].style.display = "block";
+	}
+}
+
+
+//左侧二级菜单
+var leftmenu = document.getElementById("leftmenu").getElementsByTagName("td");
+var suspension = document.getElementById("leftmenu").getElementsByClassName("suspension");
+
+if ( leftmenu.length != suspension.length ){
+	return;
+}
+
+for ( var i = 0; i < leftmenu.length; i++){
+	leftmenu[i].index = i;
+	leftmenu[i].onmouseover = function(){
+		for ( var j = 0; j < leftmenu.length; j++){
+			suspension[j].style.display = "none";
+		}
+		suspension[this.index].style.display = " block";
+	}
+	leftmenu[i].onmouseout = function(){
+		suspension[this.index].style.display = "none";
+	}
+}
+}
+
+//顶部二级菜单向下滑动
+$(document).ready(function(){
+	$("#topmenu li").hover(function(){
+		var index = $("#topmenu li").index(this);
+		timer = setTimeout(function(){$(".slidemenu").stop(true,true).eq(index).filter(":not(:animated)").slideDown("fast");},250);
+		},function(){
+		clearTimeout(timer);
+		setTimeout(function(){$(".slidemenu").slideUp("fast");},250);
+		});
+
+
+//评论向上滑动显示并添加阴影效果
+	$(".product1").hover(function(){
+		$(".product1").addClass("shadow3d");
+		$(".comment1").stop(true,true).filter(":not(:animated)").slideDown("fast");
+		},function(){
+		$(".product1").removeClass("shadow3d");
+		$(".comment1").slideUp("fast");
+	});
+	$(".product2").hover(function(){
+		$(".product2").addClass("shadow3d");
+		$(".comment2").stop(true,true).filter(":not(:animated)").slideDown("fast");
+		},function(){
+		$(".product2").removeClass("shadow3d");
+		$(".comment2").slideUp("fast");
+	});
+	$(".product3").hover(function(){
+		$(".product3").addClass("shadow3d");
+		$(".comment3").stop(true,true).filter(":not(:animated)").slideDown("fast");
+		},function(){
+		$(".product3").removeClass("shadow3d");
+		$(".comment3").slideUp("fast");
+	});
+	
+});
+</script>
+</head>
+<body>
+<div id="header">
+  <span class="leftlink">
+  <ul>
+    <li><a href="#">慧生活</a></li>
+	<li>|</li>
+	<li><a href="#">慧健康</a></li>
+	<li>|</li>
+	<li><a href="#">慧新闻</a></li>
+	<li>|</li>
+	<li><a href="#">慧党建</a></li>
+	<li>|</li>
+	<li><a href="#">慧社区</a></li>
+	<li>|</li>
+	<li><a href="#">慧购物</a></li>
+  </ul>
+  </span>
+  <span class="log">
+    <ul>
+      <li><a href="#">登录</a></li>
+	  <li>|</li>
+	  <li><a href="#">注册</a></li>
+	  <li>|</li>
+	  <li><a href="#">消息通知</a></li>
+    </ul>
+  </span>
+</div>
+<div id="box">
+<a id="logo" href="#" target="_blank"><img src="logo.jpg" width="250" height="100" title="慧生活官网"/></a>
+<div id="topmenu">
+  <ul>
+    <li><a href="#">上导航1</a>
+	<div class="slidemenu">
+	  <dl>
+	    <dt><a href="#"><img src="5.jpg"/><p>描述1</p></a></dt>
+		<dt><a href="#"><img src="2.jpg"/><p>描述2</p></a></dt>
+		<dt><a href="#"><img src="3.jpg"/><p>描述3</p></a></dt>
+	  </dl>
+	</div>
+	</li>
+	<li><a href="#">上导航2</a>
+	<div class="slidemenu">
+	  <dl>
+	    <dt><a href="#"><img src="2.jpg"/><p>描述1</p></a></dt>
+		<dt><a href="#"><img src="6.jpg"/><p>描述2</p></a></dt>
+	  </dl>
+	</div>
+	</li>
+	<li><a href="#">上导航3</a>
+	<div class="slidemenu">
+	  <dl>
+	    <dt><a href="#"><img src="4.jpg"/><p>描述1</p></a></dt>
+		<dt><a href="#"><img src="3.jpg"/><p>描述2</p></a></dt>
+		<dt><a href="#"><img src="5.jpg"/><p>描述3</p></a></dt>
+	  </dl>
+	</div>
+	</li>
+	<li><a href="#">上导航4</a>
+	<div class="slidemenu">
+	  <dl>
+	    <dt><a href="#"><img src="6.jpg"/><p>描述1</p></a></dt>
+		<dt><a href="#"><img src="1.jpg"/><p>描述2</p></a></dt>
+		<dt><a href="#"><img src="4.jpg"/><p>描述3</p></a></dt>
+	  </dl>
+	</div>
+	</li>
+	<li><a href="#">上导航5</a>
+	<div class="slidemenu">
+	  <dl>
+	    <dt><a href="#"><img src="4.jpg"/><p>描述1</p></a></dt>
+		<dt><a href="#"><img src="2.jpg"/><p>描述2</p></a></dt>
+		<dt><a href="#"><img src="6.jpg"/><p>描述3</p></a></dt>
+	  </dl>
+	</div>
+	</li>
+  </ul>
+</div>
+<div id="search">站内搜索: <input type="text"></div>
+<table id="leftmenu">
+  <tr>
+    <td><a href="#">左导航1</a>
+	  <div class="suspension">
+	    <ul>
+		  <li><a href="#">子条目1</a></li>
+		  <li><a href="#">子条目2</a></li>
+		  <li><a href="#">子条目3</a></li>
+		  <li><a href="#">子条目4</a></li>
+		  <li><a href="#">子条目5</a></li>
+		  <li><a href="#">子条目6</a></li>
+		  <li><a href="#">子条目7</a></li>
+		  <li><a href="#">子条目8</a></li>
+		  <li><a href="#">子条目9</a></li>
+		  <li><a href="#">子条目10</a></li>
+		  <li><a href="#">子条目11</a></li>
+		  <li><a href="#">子条目12</a></li>
+		  <li><a href="#">子条目13</a></li>
+		</ul>
+	  </div>
+	</td>
+  </tr>
+  <tr>
+	<td><a href="#">左导航2</a>
+	  <div class="suspension">
+	    <ul>
+		  <li><a href="#">子条目1</a></li>
+		  <li><a href="#">子条目2</a></li>
+		  <li><a href="#">子条目3</a></li>
+		  <li><a href="#">子条目4</a></li>
+		  <li><a href="#">子条目5</a></li>
+		  <li><a href="#">子条目6</a></li>
+		  <li><a href="#">子条目7</a></li>
+		  <li><a href="#">子条目8</a></li>
+		  <li><a href="#">子条目9</a></li>
+		  <li><a href="#">子条目10</a></li>
+		  <li><a href="#">子条目11</a></li>
+		  <li><a href="#">子条目12</a></li>
+		  <li><a href="#">子条目13</a></li>
+		  <li><a href="#">子条目14</a></li>
+		  <li><a href="#">子条目15</a></li>
+		  <li><a href="#">子条目16</a></li>
+		  <li><a href="#">子条目17</a></li>
+		  <li><a href="#">子条目18</a></li>
+		  <li><a href="#">子条目19</a></li>
+		</ul>
+	  </div>
+	</td>
+  </tr>
+  <tr>
+	<td><a href="#">左导航3</a>
+	  <div class="suspension">
+	    <ul>
+		  <li><a href="#">子条目1</a></li>
+		  <li><a href="#">子条目2</a></li>
+		  <li><a href="#">子条目3</a></li>
+		  <li><a href="#">子条目4</a></li>
+		  <li><a href="#">子条目5</a></li>
+		  <li><a href="#">子条目6</a></li>
+		  <li><a href="#">子条目7</a></li>
+		  <li><a href="#">子条目8</a></li>
+		  <li><a href="#">子条目9</a></li>
+		</ul>
+	  </div>
+	</td>
+  </tr>
+  <tr>
+	<td><a href="#">左导航4</a>
+	  <div class="suspension">
+	    <ul>
+		  <li><a href="#">子条目1</a></li>
+		  <li><a href="#">子条目2</a></li>
+		  <li><a href="#">子条目3</a></li>
+		  <li><a href="#">子条目4</a></li>
+		  <li><a href="#">子条目5</a></li>
+		  <li><a href="#">子条目6</a></li>
+		  <li><a href="#">子条目7</a></li>
+		  <li><a href="#">子条目8</a></li>
+		  <li><a href="#">子条目9</a></li>
+		  <li><a href="#">子条目10</a></li>
+		  <li><a href="#">子条目11</a></li>
+		  <li><a href="#">子条目12</a></li>
+		  <li><a href="#">子条目13</a></li>
+		</ul>
+	  </div>
+	</td>
+  </tr>
+  <tr>
+	<td><a href="#">左导航5</a>
+	  <div class="suspension">
+	    <ul>
+		  <li><a href="#">子条目1</a></li>
+		  <li><a href="#">子条目2</a></li>
+		  <li><a href="#">子条目3</a></li>
+		  <li><a href="#">子条目4</a></li>
+		  <li><a href="#">子条目5</a></li>
+		  <li><a href="#">子条目6</a></li>
+		  <li><a href="#">子条目7</a></li>
+		  <li><a href="#">子条目8</a></li>
+		  <li><a href="#">子条目9</a></li>
+		  <li><a href="#">子条目10</a></li>
+		  <li><a href="#">子条目11</a></li>
+		  <li><a href="#">子条目12</a></li>
+		  <li><a href="#">子条目13</a></li>
+		</ul>
+	  </div>
+	</td>
+  </tr>
+  <tr>
+	<td><a href="#">左导航6</a>
+	  <div class="suspension">
+	    <ul>
+		  <li><a href="#">子条目1</a></li>
+		  <li><a href="#">子条目2</a></li>
+		  <li><a href="#">子条目3</a></li>
+		  <li><a href="#">子条目4</a></li>
+		  <li><a href="#">子条目5</a></li>
+		  <li><a href="#">子条目6</a></li>
+		  <li><a href="#">子条目7</a></li>
+		  <li><a href="#">子条目8</a></li>
+		  <li><a href="#">子条目9</a></li>
+		  <li><a href="#">子条目10</a></li>
+		  <li><a href="#">子条目11</a></li>
+		  <li><a href="#">子条目12</a></li>
+		  <li><a href="#">子条目13</a></li>
+		</ul>
+	  </div>
+	</td>
+  </tr>
+</table>
+  <div id="container">
+    <div id="list" style="left: -600px;">
+        <a href="#"><img src="5.jpg" alt="5"/></a>
+        <a href="#"><img src="1.jpg" alt="1"/></a>
+        <a href="#"><img src="2.jpg" alt="2"/></a>
+        <a href="#"><img src="3.jpg" alt="3"/></a>
+        <a href="#"><img src="4.jpg" alt="4"/></a>
+        <a href="#"><img src="5.jpg" alt="5"/></a>
+        <a href="#"><img src="1.jpg" alt="1"/></a>
+    </div>
+    <div id="buttons">
+        <span index="1" class="on"></span>
+        <span index="2"></span>
+        <span index="3"></span>
+        <span index="4"></span>
+        <span index="5"></span>
+    </div>
+    <a href="javascript:;" id="prev" class="arrow">&lt;</a>
+    <a href="javascript:;" id="next" class="arrow">&gt;</a>
+  </div>
+  <a id="shadowpic1" href="#"><img src="6.jpg" alt="6"/></a>
+  <a id="shadowpic2" href="#"><img src="5.jpg" alt="5"/></a>
+  <div id="represent">
+    <b style="font-size: 20px;">代表产品</b>
+	<a href="javascript:;" id="prevProduct" class="arrowProduct cannot">&lt;</a>
+    <a href="javascript:;" id="nextProduct" class="arrowProduct">&gt;</a>
+	<div id="containerProduct">
+	  <div id="listProduct" style="left: 0px;">
+	    <a href="#"><img src="1.jpg" alt="1"/></a>
+		<a href="#"><img src="2.jpg" alt="2"/></a>
+		<a href="#"><img src="3.jpg" alt="3"/></a>
+		<a href="#"><img src="4.jpg" alt="4"/></a>
+		<a href="#"><img src="5.jpg" alt="5"/></a>
+		<a href="#"><img src="6.jpg" alt="6"/></a> 
+		<div id="description">
+	      <table>
+		    <tr>
+			  <td>描述1</td>
+			  <td>描述2</td>
+			  <td>描述3</td>
+			  <td>描述4</td>
+			  <td>描述5</td>
+			  <td>描述6</td>
+			</tr>
+		  </table>
+		</div>
+	  </div>
+	</div>
+  </div>
+  <div id="series1">
+    <b style="font-size: 20px;">系列1</b>
+	<div id="series1-tit" class="series1-tit">
+	  <ul>
+		<li class="select"><a href="#">分类1</a></li>
+		<li><a href="#">分类2</a></li>
+		<li><a href="#">分类3</a></li>
+		<li><a href="#">分类4</a></li>
+	  </ul>
+	</div>
+	<div id="series1-con" class="series1-con">
+	  <div class="mod" style="display:block">
+		<div class="product1">
+		  <a href="#"><img src="3.jpg" alt="3"/>
+		  <table>
+		    <tr>
+			  <td>主描述1</td>
+			</tr>
+			<tr>
+			  <td>子描述1</td>
+			</tr>
+		  </table>
+		  </a>
+		  <div class="comment1">
+		    评论1
+		  </div>
+		</div>
+		<div class="product2">
+		  <a href="#"><img src="2.jpg" alt="2"/>
+		  <table>
+		    <tr>
+			  <td>主描述2</td>
+			</tr>
+			<tr>
+			  <td>子描述2</td>
+			</tr>
+		  </table>
+		  </a>
+		  <div class="comment2">
+		    评论2
+		  </div>
+		</div>
+		<div class="product3">
+		  <a href="#"><img src="1.jpg" alt="1"/>
+		  <table>
+		    <tr>
+			  <td>主描述3</td>
+			</tr>
+			<tr>
+			  <td>子描述3</td>
+			</tr>
+		  </table>
+		  </a>
+		  <div class="comment3">
+		    评论3
+		  </div>
+		</div>
+	  </div>
+      <div class="mod" style="display:none">
+		<div class="product1">
+		  <a href="#"><img src="6.jpg" alt="6"/>
+		  <table>
+		    <tr>
+			  <td>主描述1</td>
+			</tr>
+			<tr>
+			  <td>子描述1</td>
+			</tr>
+		  </table>
+		  </a>
+		  <div class="comment1">
+		    评论1
+		  </div>
+		</div>
+		<div class="product2">
+		  <a href="#"><img src="5.jpg" alt="5"/>
+		  <table>
+		    <tr>
+			  <td>主描述2</td>
+			</tr>
+			<tr>
+			  <td>子描述2</td>
+			</tr>
+		  </table>
+		  </a>
+		  <div class="comment2">
+		    评论2
+		  </div>
+		</div>
+		<div class="product3">
+		  <a href="#"><img src="4.jpg" alt="4"/>
+		  <table>
+		    <tr>
+			  <td>主描述3</td>
+			</tr>
+			<tr>
+			  <td>子描述3</td>
+			</tr>
+		  </table>
+		  </a>
+		  <div class="comment3">
+		    评论3
+		  </div>
+		</div>
+	  </div>
+	  <div class="mod" style="display:none">
+		<div class="product1">
+		  <a href="#"><img src="5.jpg" alt="5"/>
+		  <table>
+		    <tr>
+			  <td>主描述1</td>
+			</tr>
+			<tr>
+			  <td>子描述1</td>
+			</tr>
+		  </table>
+		  </a>
+		  <div class="comment1">
+		    评论1
+		  </div>
+		</div>
+		<div class="product2">
+		  <a href="#"><img src="3.jpg" alt="3"/>
+		  <table>
+		    <tr>
+			  <td>主描述2</td>
+			</tr>
+			<tr>
+			  <td>子描述2</td>
+			</tr>
+		  </table>
+		  </a>
+		  <div class="comment2">
+		    评论2
+		  </div>
+		</div>
+		<div class="product3">
+		  <a href="#"><img src="2.jpg" alt="2"/>
+		  <table>
+		    <tr>
+			  <td>主描述3</td>
+			</tr>
+			<tr>
+			  <td>子描述3</td>
+			</tr>
+		  </table>
+		  </a>
+		  <div class="comment3">
+		    评论3
+		  </div>
+		</div>
+	  </div>
+      <div class="mod" style="display:none">
+		<div class="product1">
+		  <a href="#"><img src="4.jpg" alt="4"/>
+		  <table>
+		    <tr>
+			  <td>主描述1</td>
+			</tr>
+			<tr>
+			  <td>子描述1</td>
+			</tr>
+		  </table>
+		  </a>
+		  <div class="comment1">
+		    评论1
+		  </div>
+		</div>
+		<div class="product2">
+		  <a href="#"><img src="1.jpg" alt="1"/>
+		  <table>
+		    <tr>
+			  <td>主描述2</td>
+			</tr>
+			<tr>
+			  <td>子描述2</td>
+			</tr>
+		  </table>
+		  </a>
+		  <div class="comment2">
+		    评论2
+		  </div>
+		</div>
+		<div class="product3">
+		  <a href="#"><img src="5.jpg" alt="5"/>
+		  <table>
+		    <tr>
+			  <td>主描述3</td>
+			</tr>
+			<tr>
+			  <td>子描述3</td>
+			</tr>
+		  </table>
+		  </a>
+		  <div class="comment3">
+		    评论3
+		  </div>
+		</div>
+      </div>
+	</div>
+  </div>
+  <table id="moreInformation">
+    <tr>
+	  <th>链接类1</th>
+	  <th>链接类2</th>
+	  <th>链接类3</th>
+	  <th>链接类4</th>
+	  <th>链接类5</th>
+	  <th>链接类6</th>
+	</tr>
+	<tr>
+	  <td><a href="#">链接11</a></td>
+	  <td><a href="#">链接12</a></td>
+	  <td><a href="#">链接13</a></td>
+	  <td><a href="#">链接14</a></td>
+	  <td><a href="#">链接15</a></td>
+	  <td><a href="#">链接16</a></td>
+	</tr>
+	<tr>
+	  <td><a href="#">链接21</a></td>
+	  <td><a href="#">链接22</a></td>
+	  <td><a href="#">链接23</a></td>
+	  <td><a href="#">链接24</a></td>
+	  <td><a href="#">链接25</a></td>
+	  <td><a href="#">链接26</a></td>
+	</tr>
+	<tr>
+	  <td><a href="#">链接31</a></td>
+	  <td><a href="#">链接32</a></td>
+	  <td><a href="#">链接33</a></td>
+	  <td><a href="#">链接34</a></td>
+	  <td><a href="#">链接35</a></td>
+	  <td><a href="#">链接36</a></td>
+	</tr>
+  </table>
+</div>
+<div id="footer">
+  Copyright @ www.gagc.com
+</div>
+</body>
+</html>
